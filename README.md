@@ -102,9 +102,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 For any inquiries or feedback, please contact code.crafting.eagle@gmail.com
-
-## Version History
-1.0.0
-Initial release with basic functionalities: install, update, backup, restore, and help.
-
-Thank you for using Termux Package Manager Enhancements! We hope it makes managing your Termux environment easier and more efficient.
