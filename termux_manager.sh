@@ -18,10 +18,22 @@ install_with_dependencies() {
     fi
 }
 
+# Function to ensure termux-cron is installed
+ensure_cron_installed() {
+    if ! is_installed "termux-cron"; then
+        echo "termux-cron is not installed. Installing..."
+        pkg install -y termux-cron
+    fi
+}
+
 # Function to schedule automatic updates
 schedule_updates() {
     local cron_schedule="$1"
-    (crontab -l 2>/dev/null; echo "$cron_schedule pkg upgrade -y") | crontab -
+    ensure_cron_installed
+    mkdir -p ~/.termux/cron
+    echo "$cron_schedule pkg upgrade -y" > ~/.termux/cron/updater
+    crontab ~/.termux/cron/updater
+    termux-cron start
     echo "Automatic updates scheduled."
 }
 
@@ -67,11 +79,18 @@ show_help() {
 }
 
 # Main script logic
+if [ $# -eq 0 ]; then
+    echo "Error: No command provided."
+    show_help
+    exit 1
+fi
+
 case "$1" in
     install)
         if [ -z "$2" ]; then
             echo "Error: No package specified."
             show_help
+            exit 1
         else
             install_with_dependencies "$2"
         fi
@@ -80,6 +99,7 @@ case "$1" in
         if [ -z "$2" ]; then
             echo "Error: No schedule specified."
             show_help
+            exit 1
         else
             schedule_updates "$2"
         fi
@@ -88,6 +108,7 @@ case "$1" in
         if [ -z "$2" ]; then
             echo "Error: No backup directory specified."
             show_help
+            exit 1
         else
             backup_packages "$2"
         fi
@@ -96,6 +117,7 @@ case "$1" in
         if [ -z "$2" ]; then
             echo "Error: No backup directory specified."
             show_help
+            exit 1
         else
             restore_packages "$2"
         fi
@@ -106,5 +128,6 @@ case "$1" in
     *)
         echo "Error: Invalid command."
         show_help
+        exit 1
         ;;
 esac
