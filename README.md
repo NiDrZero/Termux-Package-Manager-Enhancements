@@ -34,7 +34,7 @@ To install the script, follow these steps:
 
 1. **Download the Script:**
    ```sh
-   curl -O https://your-repository-url/termux_manager.shields
+   curl -O https://github.com/craftingeagle/termux_manager.shields
    ```
 2. **Make the Script Executable:**
    ```sh
