@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 
-## NOTE: Script is only slightly modified for my personal desire & needs testing! 
+## NOTE: Script is only slightly modified for my personal desire!
 
 ## Overview
 
