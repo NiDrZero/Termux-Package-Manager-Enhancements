@@ -100,6 +100,7 @@ Example:
 5. Search For A Package:
   ```sh
   termux_manager search vim
+  ```
 
 ## Contributing
 
