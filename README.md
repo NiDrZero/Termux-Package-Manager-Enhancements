@@ -102,13 +102,7 @@ Example:
   termux_manager search vim
   ```
 
-## Contributing
-
-We welcome contributions! Please open an issue or submit a pull request on GitHub.
-
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Contact
-For any inquiries or feedback, please contact code.crafting.eagle@gmail.com
