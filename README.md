@@ -97,6 +97,9 @@ Example:
   ```sh
   termux_manager restore ~/termux_backup
   ```
+5. Search For A Package:
+  ```sh
+  termux_manager search vim
 
 ## Contributing
 
