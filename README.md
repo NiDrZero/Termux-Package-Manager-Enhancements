@@ -4,6 +4,8 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 
+## NOTE: Script is only slightly modified for my personal desire & needs testing! 
+
 ## Overview
 
 Termux Package Manager Enhancements is a script designed to improve the package management capabilities of Termux. It provides advanced dependency management, automatic updates and upgrade scheduling, a user-friendly command-line interface, and backup and restore functionality for packages and configurations.
