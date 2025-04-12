@@ -66,16 +66,30 @@ restore_packages() {
     fi
 }
 
+# Function to search for packages using pkg search command
+search_packages() {
+    local search_term="$1"
+    if [ -z "$search_term" ]; then
+        echo "Error: No search term provided."
+        show_help
+        exit 1
+    fi
+
+    echo "Searching for packages matching \"$search_term\"..."
+    pkg search "$search_term"
+}
+
 # Function to display help information
 show_help() {
-    echo "Usage: $0 {install|update|backup|restore|help}"
+    echo "Usage: $0 {install|update|backup|restore|search|help}"
     echo
     echo "Commands:"
-    echo "  install <package>    Install a package with dependency management"
-    echo "  update <schedule>    Schedule automatic updates (e.g., \"0 2 * * *\" for 2 AM daily)"
-    echo "  backup <directory>   Backup installed packages and configurations to the specified directory"
-    echo "  restore <directory>  Restore packages and configurations from the specified backup directory"
-    echo "  help                 Display this help message"
+    echo "  install <package>     Install a package with dependency management"
+    echo "  update <schedule>     Schedule automatic updates (e.g., \"0 2 * * *\" for 2 AM daily)"
+    echo "  backup <directory>    Backup installed packages and configurations to the specified directory"
+    echo "  restore <directory>   Restore packages and configurations from the specified backup directory"
+    echo "  search <term>         Search for packages matching the specified term"
+    echo "  help                  Display this help message"
 }
 
 # Main script logic
@@ -122,6 +136,15 @@ case "$1" in
             restore_packages "$2"
         fi
         ;;
+    search)
+        if [ -z "$2" ]; then
+            echo "Error: No search term provided."
+            show_help
+            exit 1
+        else
+            search_packages "$2"
+        fi
+        ;;
     help)
         show_help
         ;;
@@ -131,3 +154,4 @@ case "$1" in
         exit 1
         ;;
 esac
+
