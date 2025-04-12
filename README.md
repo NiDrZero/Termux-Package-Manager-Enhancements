@@ -34,9 +34,9 @@ Termux Package Manager Enhancements is a script designed to improve the package 
 
 To install the script, follow these steps:
 
-1. **Download the Script:**
+1. **Clone The Repo:**
    ```sh
-   curl -O https://github.com/craftingeagle/Termux-Package-Manager-Enhancements.git
+   git clone https://github.com/NiDrZero/Termux-Package-Manager-Enhancements.git
    ```
 2. **Make the Script Executable:**
    ```sh
@@ -44,7 +44,7 @@ To install the script, follow these steps:
    ```
 3. **Move the Script to a Directory in Your PATH:**
    ```sh
-   mv termux_manager.sh /usr/local/bin/termux_manager
+   mv termux_manager.sh ~/.local/bin/termux_manager
    ```
 ## Usage
 **Install a Package with Dependencies**
@@ -70,6 +70,10 @@ Example:
 **Display Help**
   ```sh
   termux_manager Help
+  ```
+**Search For Packages**
+  ```sh
+  termux_manager search <package name>
   ```
 
 **Examples**
